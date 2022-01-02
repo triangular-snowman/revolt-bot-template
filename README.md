@@ -14,5 +14,6 @@ Revolt.chat bot template made with Typescript
 - https://revolt.js.org
 
 ### License
-(c) 2022 Debert Jamie
+© 2022 Debert Jamie
+
 Licensed under the MIT License
