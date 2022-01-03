@@ -1,7 +1,7 @@
+import { Command } from "./interfaces/command";
 import { config } from "dotenv";
 import { Client } from "revolt.js";
 import fs from "fs";
-import { Command } from "./interfaces/command";
 
 config();
 
@@ -17,7 +17,7 @@ export function loadCommand() {
         const cmds = fs.readdirSync(`./commands/${dirs}`).filter((file) => file.endsWith(".js"));
 
         for(const file of cmds) {
-            const { command } = await import(`./commands/${dirs}/${file}`);
+            const { command } = require(`./commands/${dirs}/${file}`);
 
             commands.set(command.name, command);
             console.log(`Command loaded: ${command.name}`);
@@ -33,7 +33,7 @@ export function loadEvent() {
     fs.readdirSync("./commands").forEach(async (file) => {
         if(!file.endsWith(".js")) return;
 
-        const { event } = await import(`./events/${file}`);
+        const { event } = require(`./events/${file}`);
         client.on(event.name, event.run.bind(null, client));
     });
 }

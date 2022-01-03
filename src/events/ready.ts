@@ -1,6 +1,12 @@
-import { Presence } from "revolt-api/types/Users";
 import { Event } from "../interfaces/event";
-import { text } from "../config.json";
+import { text } from "../config";
+
+export enum Presence {
+    Online = "Online",
+    Idle = "Idle",
+    Busy = "Busy",
+    Invisible = "Invisible"
+}
 
 export const event: Event = {
     name: "ready",
