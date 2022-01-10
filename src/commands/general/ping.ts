@@ -1,6 +1,6 @@
 import { Command } from "../../interfaces/command";
 
-const command: Command = {
+export const command: Command = {
     name: "ping",
     description: "Check if the bot is online and responsive",
     usage: ["ping"],
@@ -8,5 +8,3 @@ const command: Command = {
         return await message.reply({ content: `:ping_pong: Pong!\nWS: \`${client.websocket.ping}ms\`\nRoundtrip: \`${Date.now() - message.createdAt}ms\`` }, false);
     },
 };
-
-export default command;

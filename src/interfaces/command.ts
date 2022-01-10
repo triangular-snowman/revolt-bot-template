@@ -6,5 +6,5 @@ export interface Command {
     description?: string;
     aliases?: string[];
     usage?: string[];
-    run: (client: Client, message: Message, args?: string[]) => unknown | Promise<unknown>;
+    run: (client: Client, message: Message, args: string[]) => unknown | Promise<unknown>;
 }

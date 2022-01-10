@@ -2,7 +2,7 @@
 import { Command } from "../interfaces/command";
 
 
-const command: Command = {
+export const command: Command = {
     name: "command name",
     description: "command description",
     aliases: ["command alias"],
@@ -12,6 +12,3 @@ const command: Command = {
         message.reply({ content: `Ping: ${client.websocket.ping}\nArgs: ${args.join(" ")}` });
     },
 };
-
-// Export it
-export default command;

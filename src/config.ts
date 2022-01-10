@@ -1,2 +1,4 @@
-export const prefix = "The bot prefix";
-export const text = "The text for status";
+// The bot prefix, ex r!
+export const prefix = "";
+// The text for status, ex "Ready"
+export const text = "";

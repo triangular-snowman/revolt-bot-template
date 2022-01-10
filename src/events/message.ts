@@ -6,10 +6,15 @@ import { commands, aliases } from "../index";
 export const event: Event = {
     name: "message",
     run: async function(client, message: Message) {
-        if(message.author_id === "00000000000000000000000000" || typeof message.content !== 'string' || !message.channel) return;
+        if(message.author_id === "00000000000000000000000000") return;
         if(message.author?.bot?.owner) return;
-        if(message.channel.channel_type !== "TextChannel") return;
+        if(message.channel!.channel_type !== "TextChannel") return;
         if(message.author_id === client.user!._id) return;
+
+        if(typeof message.content !== "string") {
+            if(message.content.type !== "text") return;
+            message.content = message.content.content;
+        }
 
         if(!message.content) return;
         if(!message.content.startsWith(prefix)) return;
