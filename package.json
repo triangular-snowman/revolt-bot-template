@@ -20,7 +20,7 @@
   "author": "Debert Jamie <debert123@protonmail.com>",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^10.0.0",
+    "dotenv": "^16.0.0",
     "revolt-api": "^0.5.3-alpha.12",
     "revolt.js": "^5.2.8"
   },
