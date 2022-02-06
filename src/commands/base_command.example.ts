@@ -7,8 +7,8 @@ export const command: Command = {
     description: "command description",
     aliases: ["command alias"],
     usage: ["command usage"],
-    run: function(client, message, args) {
+    run: function(client, message, _args) {
         // Do stuff here
-        message.reply({ content: `Ping: ${client.websocket.ping}\nArgs: ${args.join(" ")}` });
+        message.reply({ content: `Ping: ${client.websocket.ping}` });
     },
 };

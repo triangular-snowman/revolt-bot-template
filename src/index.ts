@@ -9,12 +9,11 @@ const client = new Client({
 });
 
 export const commands = new Map<string, Command>();
-export const aliases = new Map<string, Command>();
+export const aliases = new Map<string, string>();
 
-
-readdirSync("./commands/").forEach((dirs) => {
-    if(dirs.endsWith(".js")) return;
-    const cmds = readdirSync(`./commands/${dirs}/`).filter((file) => file.endsWith(".js"));
+readdirSync("./commands", { withFileTypes: true }).forEach((dirs) => {
+    if(dirs.isFile()) return;
+    const cmds = readdirSync(`./commands/${dirs.name}/`).filter((file) => file.endsWith(".js"));
 
     for(const file of cmds) {
         const { command } = require(`./commands/${dirs}/${file}`);
@@ -23,12 +22,12 @@ readdirSync("./commands/").forEach((dirs) => {
         console.log(`Command loaded: ${command.name}`);
 
         if(command.aliases?.length) {
-            command.aliases.forEach((alias: string) => aliases.set(alias, command))
+            command.aliases.forEach((alias: string) => aliases.set(alias, command.name));
         }
     }
 });
 
-readdirSync("./events/").forEach((file) => {
+readdirSync("./events~").forEach((file) => {
     if(!file.endsWith(".js")) return;
 
     const { event } = require(`./events/${file}`);

@@ -22,8 +22,12 @@ export const event: Event = {
         const args = message.content.slice(prefix.length).trim().split(/ +/g);
         const commandName = args.shift()?.toLowerCase()!;
 
-        const command = commands.get(commandName) || aliases.get(commandName);
-        if(!command) return;
+        let command = commands.get(commandName);
+        if(!command) {
+            const name = aliases.get(commandName);
+            if(name) command = commands.get(name)!;
+            else return;
+        };
 
         await command.run(client, message, args);
     },

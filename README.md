@@ -10,7 +10,6 @@ Revolt.chat bot template
 
 ### Usefull Links
 - https://developers.revolt.chat
-- https://developers.revolt.chat/api
 - https://revolt.js.org
 
 ### License

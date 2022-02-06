@@ -6,9 +6,7 @@
         "outDir": "./dist",
         "rootDir": "./src",
         "strict": true,
-        "strictPropertyInitialization": false,
         "pretty": true,
-        "declaration": true,
         "experimentalDecorators": true,
         "esModuleInterop": true
     }
