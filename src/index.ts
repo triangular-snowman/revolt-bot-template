@@ -11,9 +11,9 @@ const client = new Client({
 export const commands = new Map<string, Command>();
 export const aliases = new Map<string, string>();
 
-readdirSync("./commands", { withFileTypes: true }).forEach((dirs) => {
+readdirSync("./dist/commands", { withFileTypes: true }).forEach((dirs) => {
     if(dirs.isFile()) return;
-    const cmds = readdirSync(`./commands/${dirs.name}/`).filter((file) => file.endsWith(".js"));
+    const cmds = readdirSync(`./dist/commands/${dirs.name}/`).filter((file) => file.endsWith(".js"));
 
     for(const file of cmds) {
         const { command } = require(`./commands/${dirs}/${file}`);
@@ -27,7 +27,7 @@ readdirSync("./commands", { withFileTypes: true }).forEach((dirs) => {
     }
 });
 
-readdirSync("./events~").forEach((file) => {
+readdirSync("./dist/events").forEach((file) => {
     if(!file.endsWith(".js")) return;
 
     const { event } = require(`./events/${file}`);
