@@ -22,7 +22,7 @@
   "dependencies": {
     "dotenv": "^16.0.0",
     "revolt-api": "^0.5.3-alpha.12",
-    "revolt.js": "^5.2.8"
+    "revolt.js": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",
